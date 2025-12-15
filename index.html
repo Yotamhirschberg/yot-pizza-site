@@ -3,112 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>שם העסק שלך - דף הבית</title>
+    <meta name="description" content="Yot Pizza - שף פרטי לאירועים איטלקיים. מביאים את המטבח עד אליכם הביתה.">
+    <title>Yot Pizza | שף פרטי לאירועים</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
+        :root {
+            --primary-color: #D32F2F; /* אדום איטלקי עמוק */
+            --secondary-color: #2E5C35; /* ירוק בזיליקום */
+            --bg-color: #F9F7F2; /* גוון בצק/שמנת */
+            --text-color: #333;
+            --light-text: #fff;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Heebo', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
+
+        h1, h2, h3 {
+            font-family: 'Rubik', sans-serif;
+            margin-top: 0;
         }
-        nav ul {
-            padding: 0;
-            list-style: none;
-            text-align: center;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* --- Hero Section --- */
         .hero {
-            background-color: #0056b3; /* צבע כחול - אפשר לשנות */
+            /* כאן נכנסת תמונת הרקע */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
             color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .hero h1 { margin: 0; font-size: 2.5em; }
-        .btn {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background-color 0.3s;
             display: inline-block;
-            background: #fff;
-            color: #333;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
             font-weight: bold;
+            border: 2px solid var(--primary-color);
         }
+
+        .cta-button:hover {
+            background-color: transparent;
+            transform: scale(1.05);
+        }
+
+        /* --- Container --- */
         .container {
-            width: 80%;
+            max-width: 1100px;
             margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            background: white;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 60px 20px;
         }
-        footer {
-            background: #333;
-            color: #fff;
+
+        /* --- About Section --- */
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: -50px; /* Overlap effect */
+            position: relative;
+        }
+
+        .about-text { flex: 1; }
+        .about-image { flex: 1; }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 10px 10px 0 var(--secondary-color);
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* --- Menu Teaser --- */
+        .menu-section {
             text-align: center;
-            padding: 20px;
+            padding: 80px 20px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
             margin-top: 40px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item h3 { font-size: 1.5rem; color: #333; }
+        .menu-item i { font-size: 2rem; color: var(--secondary-color); margin-bottom: 15px; }
+
+        /* --- Contact / Footer --- */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            font-size: 2rem;
+            margin: 0 15px;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover { color: var(--primary-color); }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-section { flex-direction: column; padding: 30px; }
+            .about-image img { box-shadow: none; margin-top: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">בית</a></li>
-                <li><a href="#about">אודות</a></li>
-                <li><a href="#services">שירותים</a></li>
-                <li><a href="#contact">צור קשר</a></li>
-            </ul>
-        </nav>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Yot Pizza</h1>
+            <p>חוויה איטלקית אותנטית אצלכם בבית</p>
+            <a href="https://wa.me/972500000000" class="cta-button">הזמן אירוע <i class="fas fa-arrow-left"></i></a>
+        </div>
     </header>
 
-    <div id="home" class="hero">
-        <h1>ברוכים הבאים לעסק שלי</h1>
-        <p>כאן כותבים משפט מחץ קצר על מה שהעסק עושה.</p>
-        <a href="#contact" class="btn">דברו איתי</a>
-    </div>
+    <section class="container">
+        <div class="about-section">
+            <div class="about-text">
+                <h2 class="section-title">הסיפור שלי</h2>
+                <p>מאז שאני ילד, תמיד הייתה לי תשוקה עזה לבישול. המטבח היה המקום שבו הרגשתי הכי בבית.</p>
+                <p>כשגדלתי, החלטתי לקחת את האהבה הזו צעד קדימה. אחרי שהתנסיתי, למדתי ועבדתי במגוון מטבחים מקצועיים, הבנתי שהדבר שאני הכי נהנה ממנו הוא הקשר הישיר עם הסועדים.</p>
+                <p><strong>המטרה שלי פשוטה:</strong> להביא את המטבח האיטלקי המשובח, עם חומרי הגלם הטריים והטעמים המדויקים – ישירות עד אליכם הביתה.</p>
+            </div>
+            <div class="about-image">
+                <img src="profile.jpg" alt="יותם - שף פרטי">
+            </div>
+        </div>
+    </section>
 
-    <div class="container" id="about">
-        <h2>קצת עלינו</h2>
-        <p>כאן תכתוב פסקה קצרה על העסק. מי אתה? מה הניסיון שלך? למה כדאי לבחור בך?</p>
-    </div>
-
-    <div class="container" id="services">
-        <h2>השירותים שלנו</h2>
-        <ul>
-            <li><strong>שירות מספר 1:</strong> פירוט קצר על השירות.</li>
-            <li><strong>שירות מספר 2:</strong> פירוט קצר על השירות.</li>
-            <li><strong>שירות מספר 3:</strong> פירוט קצר על השירות.</li>
-        </ul>
-    </div>
-
-    <div class="container" id="contact">
-        <h2>יצירת קשר</h2>
-        <p>טלפון: 050-0000000</p>
-        <p>אימייל: email@example.com</p>
-    </div>
+    <section class="menu-section">
+        <div class="container">
+            <h2 class="section-title">מה בתפריט?</h2>
+            <p>טעימה קטנה מהמנות שיעשו לכם את האירוע</p>
+            
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <i class="fas fa-pizza-slice"></i>
+                    <h3>פיצה נאפוליטנית</h3>
+                    <p>בצק בתפיחה ארוכה, רוטב עגבניות איטלקי ומוצרלה טרייה.</p>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>סלט קיסר</h3>
+                    <p>לבבות חסה פריכים, קרוטונים תוצרת בית ופרמזן איכותי.</p>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>פסטה רוזה</h3>
+                    <p>רוטב שמנת עגבניות קטיפתי עוטף פסטה טרייה.</p>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-burn"></i>
+                    <h3>פיצה דבש</h3>
+                    <p>השילוב המושלם בין מתוק למלוח שמשאיר טעם של עוד.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 כל הזכויות שמורות לשם העסק שלך</p>
+        <h2>מוכנים לאירוע הבא שלכם?</h2>
+        <p>דברו איתי ונתאים לכם תפריט מושלם</p>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/yot_pizza/" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/972500000000" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.8rem;">&copy; 2025 Yot Pizza. נבנה באהבה.</p>
     </footer>
 
 </body>
