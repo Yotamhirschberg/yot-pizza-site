@@ -3,256 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yot Pizza - יותם, שף פרטי לאירועים וסדנאות איטלקיות.">
-    <title>Yot Pizza | חוויה איטלקית</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <title>יותם - שף פרטי לאירועים איטלקיים</title>
     <style>
-        :root {
-            --primary: #D32F2F; 
-            --dark: #1a1a1a;
-            --light: #f8f8f8;
-            --accent: #2E5C35;
-        }
-
+        /* --- עיצוב בסיסי --- */
         body {
-            font-family: 'Heebo', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
         }
 
-        h1, h2, h3 { font-family: 'Rubik', sans-serif; }
-        a { text-decoration: none; }
-
-        /* --- Hero with Parallax --- */
-        .hero {
-            position: relative;
-            height: 90vh;
+        /* --- תפריט עליון --- */
+        header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+        }
+
+        h1, h2, h3 { color: #d32f2f; margin-top: 30px; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- כפתורים --- */
+        .btn-insta {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white;
-            text-align: center;
-            background-image: url('hero-bg.jpg');
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-contact {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* --- תמונה ראשית --- */
+        .hero {
+            background-image: url('hero-bg.jpg'); 
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-        }
-
-        .hero h1 { font-size: 4rem; text-shadow: 0 10px 30px rgba(0,0,0,0.7); margin: 0; }
-        .hero p { font-size: 1.5rem; margin-bottom: 30px; font-weight: 300; }
-
-        /* --- Floating Card Design --- */
-        .section-container {
-            padding: 20px;
-            margin-top: -50px; /* Overlap effect */
-            position: relative;
-            z-index: 2;
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            margin-bottom: 60px;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- Horizontal Infinite Gallery --- */
-        .gallery-wrapper {
-            margin-top: 30px;
-            position: relative;
-        }
-
-        .scroll-gallery {
+            height: 400px;
             display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 10px 5px 30px 5px;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
-        
-        /* Custom Scrollbar */
-        .scroll-gallery::-webkit-scrollbar { height: 8px; }
-        .scroll-gallery::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
-        .scroll-gallery::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
-        /* תיקון לתמונות עומדות - Vertical Fix */
-        .gallery-img {
-            min-width: 220px; /* צר יותר כדי שיתאים לפורמט עומד */
-            height: 350px;    /* גבוה כדי להכיל את כל התמונה */
-            border-radius: 12px;
+        .hero h1 { font-size: 3rem; margin: 0 0 10px 0; color: white; }
+        .hero p { font-size: 1.5rem; }
+
+        /* --- תוכן ראשי --- */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             object-fit: cover;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* --- גלריה --- */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .gallery-img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .gallery-img:hover { opacity: 0.8; }
+
+        /* --- מודל (הגדלת תמונות) --- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            padding-top: 60px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
             cursor: pointer;
         }
-        
-        .gallery-img:hover { transform: scale(1.05); }
 
-        /* --- About Section --- */
-        .about-split { display: flex; align-items: center; gap: 40px; }
-        .about-text { flex: 2; }
-        .about-img { flex: 1; }
-        .about-img img { width: 100%; border-radius: 20px; box-shadow: -15px 15px 0 var(--accent); }
-
-        /* --- Buttons --- */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            margin-top: 15px;
-        }
-        .btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(211,47,47,0.3); }
-        .btn-primary:hover { transform: translateY(-3px); background: #b71c1c; }
-        
-        .btn-whatsapp-fixed {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            background: #25D366;
+        /* --- פוטר --- */
+        footer {
+            background-color: #333;
             color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            z-index: 1000;
-            font-size: 1.1rem;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
         }
-        .btn-whatsapp-fixed:hover { transform: scale(1.05); background: #1ebc57; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .about-split { flex-direction: column; }
-            .card { padding: 25px; }
-            .btn-whatsapp-fixed span { display: none; } /* במובייל רק אייקון */
-            .btn-whatsapp-fixed { padding: 15px; border-radius: 50%; }
+        /* מותאם לנייד */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .gallery-img { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/972559952451" class="btn-whatsapp-fixed" target="_blank">
-        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
-        <span>דברו איתי</span>
-    </a>
+    <header>
+        <div style="font-weight:bold; font-size:1.2rem;">יותם - שף פרטי</div>
+        <a href="https://www.instagram.com/yot_pizza" target="_blank" class="btn-insta">האינסטגרם שלי</a>
+    </header>
 
     <div class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Yot Pizza</h1>
-            <p>שף פרטי | סדנאות | אירועי בוטיק</p>
-            <div>
-                <a href="#events" class="btn btn-primary">לאירועים</a>
-                <a href="#workshops" class="btn btn-primary" style="background: white; color: black;">לסדנאות</a>
-            </div>
+        <h1>פיצה איטלקית אמיתית</h1>
+        <p>חוויה קולינרית אצלכם באירוע</p>
+    </div>
+
+    <div class="container">
+        <img src="profile.jpg" alt="יותם" class="profile-img">
+        <h2>על החוויה</h2>
+        <p>
+            היי, אני יותם. אני מביא אליכם את הטעמים של איטליה עם חומרי גלם טריים, בצק בתפיחה ארוכה ואהבה גדולה לאוכל.
+            כל פיצה נעשית בעבודת יד מול האורחים לחוויה מלאה בריחות וטעמים.
+        </p>
+
+        <h3>צרו קשר להזמנות</h3>
+        <p>מוזמנים לשלוח הודעה בוואטסאפ לפרטים נוספים:</p>
+        <a href="https://wa.me/972559952451" class="btn-contact">שלח הודעה בוואטסאפ</a>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ddd;">
+
+        <h2>תמונות מאירועים</h2>
+        <div class="gallery">
+            <img src="event1.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event2.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event3.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event4.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event5.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event6.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event7.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event8.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event9.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event10.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event11.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event12.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event13.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event14.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="event15.jpg" class="gallery-img" onclick="openModal(this)">
+        </div>
+
+        <h2>תמונות מסדנאות</h2>
+        <div class="gallery">
+            <img src="workshop1.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop2.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop3.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop4.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop5.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop6.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop7.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop8.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop9.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop10.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop11.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop12.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop13.jpg" class="gallery-img" onclick="openModal(this)">
+            <img src="workshop14.jpg" class="gallery-img" onclick="openModal(this)">
         </div>
     </div>
 
-    <div class="section-container">
-        
-        <div class="card">
-            <div class="about-split">
-                <div class="about-img">
-                    <img src="profile.jpg" alt="יותם השף">
-                </div>
-                <div class="about-text">
-                    <h2 style="color: var(--accent);">נעים להכיר, יותם</h2>
-                    <p>התשוקה שלי היא לחבר בין אנשים דרך אוכל איטלקי אמיתי. המטבח עבורי הוא לא רק מקום עבודה, אלא מגרש משחקים של טעמים, ריחות וזכרונות.</p>
-                    <p>אני מביא אליכם הביתה את איטליה הקלאסית, עם טוויסטים מודרניים וחומרי גלם שלא מתפשרים עליהם. מהקמח, דרך העגבניות ועד לפרמזן.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="events" class="card">
-            <h2 style="color: var(--primary); font-size: 2rem;"><i class="fas fa-utensils"></i> אירועי שף פרטיים</h2>
-            <p>מסעדה איטלקית שנבנית אצלכם בסלון לערב אחד. אני מגיע עם הכל, מבשל מול העיניים, מגיש, ומשאיר מטבח מבריק.</p>
-            
-            <div class="gallery-wrapper">
-                <p style="font-size: 0.9rem; color: #888; margin-bottom: 5px;"><i class="fas fa-arrow-right"></i> גללו שמאלה לעוד תמונות</p>
-                <div class="scroll-gallery">
-                    <img src="event1.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event2.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event3.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event4.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event5.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event6.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event7.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event8.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event9.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event10.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event11.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event12.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event13.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event14.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                    <img src="event15.jpg" class="gallery-img" alt="אירוע" loading="lazy">
-                </div>
-            </div>
-            
-            <a href="https://wa.me/972559952451?text=אשמח לפרטים על אירוע שף" class="btn btn-primary">בדיקת תאריך לאירוע</a>
-        </div>
-
-        <div id="workshops" class="card">
-            <h2 style="color: var(--accent); font-size: 2rem;"><i class="fas fa-pizza-slice"></i> סדנאות איטלקיות</h2>
-            <p>חוויה מעשית, מלכלכת (בקטע טוב) ומגבשת. נלמד את סודות הבצק, נכין רטבים ונאכל את מה שיצרנו יחד עם יין טוב.</p>
-
-            <div class="gallery-wrapper">
-                <p style="font-size: 0.9rem; color: #888; margin-bottom: 5px;"><i class="fas fa-arrow-right"></i> גללו שמאלה לעוד תמונות</p>
-                <div class="scroll-gallery">
-                    <img src="workshop1.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop2.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop3.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop4.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop5.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop6.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop7.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop8.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop9.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop10.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop11.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop12.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop13.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                    <img src="workshop14.jpg" class="gallery-img" alt="סדנה" loading="lazy">
-                </div>
-            </div>
-
-            <a href="https://wa.me/972559952451?text=אשמח לפרטים על סדנה" class="btn btn-primary" style="background: var(--accent);">שריינו סדנה</a>
-        </div>
-
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
     </div>
 
-    <footer style="background: #222; color: white; text-align: center; padding: 30px;">
-        <p>Yot Pizza | 055-9952451</p>
-        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2025 כל הזכויות שמורות</p>
+    <footer>
+        <p>© כל הזכויות שמורות ליותם</p>
+        <p>עקבו אחריי באינסטגרם:</p>
+        <a href="https://www.instagram.com/yot_pizza" target="_blank" class="btn-insta" style="font-size: 0.9rem;">yot_pizza</a>
     </footer>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
